@@ -36,7 +36,7 @@ import com.amazonaws.services.s3.internal.Constants;
  */
 public enum Region {
 
-    /**
+	/**
      * The US Standard Amazon S3 Region. This region
      * uses Amazon S3 servers located in the United
      * States.
@@ -46,11 +46,22 @@ public enum Region {
      * to this region unless a location constraint is specified when creating a bucket.
      * The US Standard Region automatically places
      * data in either Amazon's east or west coast data centers depending on
-     * which one provides the lowest latency. The US Standard Region
-     * provides eventual consistency for all requests.
+     * which one provides the lowest latency.
      * </p>
      */
-	US_Standard((String[])null),
+    US_Standard((String[])null),
+
+    /**
+     * The US-East-2 (Ohio) Region. This region
+     * uses Amazon S3 servers located in Ohio.
+     * <p>
+     * When using buckets in this region, set the client
+     * endpoint to <code>s3.us-east-2.amazonaws.com</code> on all requests to these buckets
+     * to reduce any latency experienced after the first hour of
+     * creating a bucket in this region.
+     * </p>
+     */
+    US_East_2("us-east-2"),
 
     /**
      * The US-West (Northern California) Amazon S3 Region. This region uses Amazon S3
@@ -60,11 +71,6 @@ public enum Region {
      * endpoint to <code>s3-us-west-1.amazonaws.com</code> on all requests to these
      * buckets to reduce any latency experienced after the first
      * hour of creating a bucket in this region.
-     * </p>
-     * <p>
-     * In Amazon S3, the US-West (Northern California) Region provides
-     * read-after-write consistency for PUTS of new objects in Amazon
-     * S3 buckets and eventual consistency for overwrite PUTS and DELETES.
      * </p>
      */
     US_West("us-west-1"),
@@ -80,24 +86,46 @@ public enum Region {
      * </p>
      */
     US_West_2("us-west-2"),
-    
+
     /**
-     * The US GovCloud Region. This region uses Amazon S3 servers located in the Northwestern 
-     * region of the United States. 
+     * The US GovCloud Region. This region uses Amazon S3 servers located in the Northwestern
+     * region of the United States.
      */
-    US_GovCloud("s3-us-gov-west-1"),
+    US_GovCloud("us-gov-west-1"),
 
     /**
      * The EU (Ireland) Amazon S3 Region. This region uses Amazon S3 servers located
      * in Ireland.
-     * <p>
-     * In Amazon S3, the EU (Ireland) Region provides read-after-write
-     * consistency for PUTS of new objects in Amazon S3 buckets and eventual
-     * consistency for overwrite PUTS and DELETES.
-     * </p>
      */
     EU_Ireland("eu-west-1","EU"),
-    
+
+    /**
+     * The EU (London) Amazon S3 Region. This region uses Amazon S3 servers located
+     * in London.
+     */
+    EU_London("eu-west-2"),
+
+    /**
+     * The EU (Frankfurt) Amazon S3 Region. This region uses Amazon S3 servers
+     * located in Frankfurt.
+     * <p>
+     * The EU (Frankfurt) Region requires AWS V4 authentication, therefore when
+     * accessing buckets inside this region, you need to explicitly configure
+     * the "eu-central-1" endpoint for the AmazonS3Client in order to enable V4
+     * signing:
+     *
+     * <pre>
+     * AmazonS3Client s3 = new AmazonS3Client();
+     * s3.setRegion(RegionUtils.getRegion("eu-central-1"));
+     * </pre>
+     *
+     * </p>
+     *
+     * @see AmazonS3Client#setEndpoint(String)
+     * @see AmazonS3Client#setRegion(com.amazonaws.regions.Region)
+     */
+    EU_Frankfurt("eu-central-1"),
+
     /**
      * The Asia Pacific (Singapore) Region. This region uses Amazon S3 servers located
      * in Singapore.
@@ -123,16 +151,40 @@ public enum Region {
     AP_Sydney("ap-southeast-2"),
 
     /**
-	 * The Asia Pacific (Tokyo) Region. This region uses Amazon S3 servers
-	 * located in Tokyo.
-	 * <p>
-	 * When using buckets in this region, set the client endpoint to
-	 * <code>s3-ap-northeast-1.amazonaws.com</code> on all requests to these
-	 * buckets to reduce any latency experienced after the first hour of
-	 * creating a bucket in this region.
-	 * </p>
-	 */
+     * The Asia Pacific (Tokyo) Region. This region uses Amazon S3 servers
+     * located in Tokyo.
+     * <p>
+     * When using buckets in this region, set the client endpoint to
+     * <code>s3-ap-northeast-1.amazonaws.com</code> on all requests to these
+     * buckets to reduce any latency experienced after the first hour of
+     * creating a bucket in this region.
+     * </p>
+     */
     AP_Tokyo("ap-northeast-1"),
+
+    /**
+     * The Asia Pacific (Seoul) Region. This region uses Amazon S3 servers
+     * located in Seoul.
+     * <p>
+     * When using buckets in this region, set the client endpoint to
+     * <code>s3.ap-northeast-2.amazonaws.com</code> on all requests to these
+     * buckets to reduce any latency experienced after the first hour of
+     * creating a bucket in this region.
+     * </p>
+     */
+    AP_Seoul("ap-northeast-2"),
+
+    /**
+     * The Asia Pacific (Mumbai) Region. This region uses Amazon S3 servers
+     * located in Mumbai.
+     * <p>
+     * When using buckets in this region, set the client endpoint to
+     * <code>s3.ap-south-1.amazonaws.com</code> on all requests to these
+     * buckets to reduce any latency experienced after the first hour of
+     * creating a bucket in this region.
+     * </p>
+     */
+    AP_Mumbai("ap-south-1"),
 
     /**
      * The South America (Sao Paulo) Region. This region uses Amazon S3 servers
@@ -144,7 +196,29 @@ public enum Region {
      * bucket in this region.
      * </p>
      */
-    SA_SaoPaulo("sa-east-1");
+    SA_SaoPaulo("sa-east-1"),
+
+    /**
+     * The Canada (Central) Region. This region uses Amazon S3 servers
+     * located in Canada.
+     * <p>
+     * When using buckets in this region, set the client endpoint to
+     * <code>s3.ca-central-1.amazonaws.com</code> on all requests to these buckets
+     * to reduce any latency experienced after the first hour of creating a
+     * bucket in this region.
+     * </p>
+     */
+    CA_Central("ca-central-1"),
+
+    /**
+     * The China (Beijing) Region. This region uses Amazon S3 servers
+     * located in Beijing.
+     * <p>
+     * When using buckets in this region, you must set the client endpoint to
+     * <code>s3.cn-north-1.amazonaws.com.cn</code>.
+     * </p>
+     */
+    CN_Beijing("cn-north-1");
 
    /**
     * Used to extract the S3 regional id from an S3 end point.
