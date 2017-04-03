@@ -1347,6 +1347,91 @@
         <Hostname>swf.us-gov-west-1.amazonaws.com</Hostname>
       </Endpoint>
     </Region>
+    
+    
+    
+    <Region>
+      <Name>ap-south-1</Name>
+      <Endpoint>
+        <ServiceName>monitoring</ServiceName>
+        <Http>false</Http>
+        <Https>true</Https>
+        <Hostname>monitoring.ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>dynamodb</ServiceName>
+        <Http>false</Http>
+        <Https>true</Https>
+        <Hostname>dynamodb.ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>ec2</ServiceName>
+        <Http>false</Http>
+        <Https>true</Https>
+        <Hostname>ec2.ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>elasticmapreduce</ServiceName>
+        <Http>true</Http>
+        <Https>true</Https>
+        <Hostname>elasticmapreduce.ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>rds</ServiceName>
+        <Http>false</Http>
+        <Https>true</Https>
+        <Hostname>rds.ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>sns</ServiceName>
+        <Http>true</Http>
+        <Https>true</Https>
+        <Hostname>sns.ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>sqs</ServiceName>
+        <Http>true</Http>
+        <Https>true</Https>
+        <Hostname>sqs.ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>s3</ServiceName>
+        <Http>true</Http>
+        <Https>true</Https>
+        <Hostname>s3-ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>autoscaling</ServiceName>
+        <Http>true</Http>
+        <Https>true</Https>
+        <Hostname>autoscaling.ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>iam</ServiceName>
+        <Http>false</Http>
+        <Https>true</Https>
+        <Hostname>iam.us-gov.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>sts</ServiceName>
+        <Http>false</Http>
+        <Https>true</Https>
+        <Hostname>sts.ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>elasticloadbalancing</ServiceName>
+        <Http>true</Http>
+        <Https>true</Https>
+        <Hostname>elasticloadbalancing.ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+      <Endpoint>
+        <ServiceName>swf</ServiceName>
+        <Http>false</Http>
+        <Https>true</Https>
+        <Hostname>swf.ap-south-1.amazonaws.com</Hostname>
+      </Endpoint>
+    </Region>
+    
   </Regions>
   <Services>
     <Service>
@@ -1532,6 +1617,7 @@
       <RegionName>ap-southeast-2</RegionName>
       <RegionName>sa-east-1</RegionName>
       <RegionName>us-gov-west-1</RegionName>
+      <RegionName>ap-south-1</RegionName>
     </Service>
     <Service>
       <Name>autoscaling</Name>
